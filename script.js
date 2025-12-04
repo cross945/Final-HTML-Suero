@@ -24,7 +24,7 @@ let productos = [
   },
   {
     "id" : 4444,
-    "image" : ".media/img/perfumes.jpg",
+    "image" : "media/img/perfumes.jpg",
     "name" : "Perfumes",
     "price" : 2000,
     "description" : "Botella de medio litro. Include pulverizador."
@@ -62,7 +62,7 @@ function loadProducts() {
 
       let objToPass = {
         id : prodId,
-        image : imagen,
+        image : imagen ,
         name : nombre,
         price : precio,
         description : descripcion
@@ -73,11 +73,11 @@ function loadProducts() {
     contenedorProducto.innerHTML += `
       <div class="card">
         <div>
-          <div id="imagen" name="imagen">
-            <img class="imagen" src="${imagen}"></img>
-          </div>
           <div class="nombre" id="nombre" name="nombre">${nombre}</div>
           <br>
+          <div id="imagen" name="imagen" >
+            <img class="imagen" src="${imagen}"></img>
+          </div>
           <div class="precio" id="precio" name="precio">$${precio}</div>
           <br>
           <div>
@@ -96,4 +96,86 @@ function loadProducts() {
     } catch (error) {
     console.log(error);
   }
+}
+
+
+
+function addWishList(data) {
+  console.log("Dentro de addWish");
+  const prodToAdd = {
+    "id": data.id,
+    "favId": Date.now(),
+    "price": data.price,
+    "name": data.name,
+    "image": data.image
+  }
+  let cadena = JSON.stringify(prodToAdd);
+  if (typeof(Storage) !== "undefined") {
+    localStorage.setItem(prodToAdd.favId, cadena);
+    location.reload();
+  }
+  return false;
+}
+document.addEventListener("DOMContentLoaded", loadProducts);
+
+const contenedorFavoritos = document.createElement('div');
+contenedorFavoritos.classList.add('contenedor-favoritos');
+
+let seccionFavs = document.getElementById("seccion_favs");
+
+let totalFavoritos = document.getElementById('item_cantidad');
+
+let precioTotal = document.getElementById('precio_total');
+
+function loadFavourites() {
+  try {
+    let totalPrice = 0;
+    if(localStorage.length > 0) {
+      seccionFavs.style.display = "block";
+      totalFavoritos.innerText += localStorage.length;
+    }
+    Object.keys(localStorage).forEach(function(key) {
+      let item = JSON.parse(localStorage.getItem(key));
+      totalPrice += item.price;
+      contenedorFavoritos.innerHTML += `
+            <div class="card-fav">
+              <img id="imagen" src="${item.image}"></img>
+              <h5>${item.price} $</h5>
+              <h5>${item.name}</h5>
+              <div>
+                <button onclick="eliminar(${item.favId})" class="btn-del" value="Eliminar">Eliminar ❌</button>
+              </div>
+            </div>
+        `;
+    });
+    precioTotal.innerText = 'Total : '.concat(totalPrice).concat(' $');
+    seccionFavs.appendChild(contenedorFavoritos);
+    } catch (error) {
+    console.error("Error al obtener los favoritos:", error);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadFavourites);
+
+function eliminar(id) {
+  let idx = id.toString();
+  console.log(idx);
+  localStorage.removeItem(idx);
+  actualizarPagina();
+}
+
+const btnDeleteAll = document.getElementById('delete_all');
+btnDeleteAll.addEventListener('click', eliminarDeseados);
+
+function eliminarDeseados() {
+  try {
+    localStorage.clear();
+    actualizarPagina();
+  } catch(error) {
+    console.log(error);
+  }
+}
+
+function actualizarPagina() {
+  location.reload();
 }
