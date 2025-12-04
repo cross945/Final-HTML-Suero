@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrega Final Suero</title>
+</head>
+<body class="body_css">
+    <header class="header_css">
+        <link rel="stylesheet" href="css/index.css">
+        <div style="border: 3px solid seagreen;">
+        <img src="media/img/laverap_logo.png" alt="logo principal" width="600" height="400" ></img>
+        <h1 id="inicio">Lavadero Laverap</h1>
+        </div>
+        
+    <nav class="menu">
+      <ul class="lista-links">
+        <li>
+          <h1><a class="link" href="#productos">Servicios</a></h1>
+        </li>
+        <li>
+          <h1><a class="link" href="#contacto">Contacto</a></h1>
+        </li>
+        <!--<li>
+          <h1><a class="link" href="#login">Logearte</a></h1>
+        </li>-->
+      </ul>
+    </nav>
+                <ol>
+                <section class="bienvenida" id="bienvenida">
+                <p class="txt-bienvenida">
+                    Tu mas confiable lavandería! Te damos la bienvenida a nuestro sitio, donde podrás ver los servicios que ofrecemos. Disfruta tu visita!
+                </p>
+                </section>
+            
+            <video class="video" loop="true" muted autoplay width="35%">
+                <source src="media/video/Washing Clothes Stock Video.mp4" type="video/mp4">
+                Tu navegador no soporta este video.
+            </video>
+
+                
+            </ol>
+    </header>
+    <main class="main_css">
+          <section>
+      <div id="seccion_favs" class="seccion-favs" style="display: none;">
+      
+        
+        <div class="flex-favs">
+          
+          <div id="delete_all" class="fav-left">
+            <div class="icono-container">
+              <div class="icono-del">
+                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24"><path fill="currentColor" d="M7.616 20q-.667 0-1.141-.475T6 18.386V6h-.5q-.213 0-.356-.144T5 5.499t.144-.356T5.5 5H9q0-.31.23-.54t.54-.23h4.46q.31 0 .54.23T15 5h3.5q.213 0 .356.144t.144.357t-.144.356T18.5 6H18v12.385q0 .666-.475 1.14t-1.14.475zM17 6H7v12.385q0 .269.173.442t.443.173h8.769q.269 0 .442-.173t.173-.442zm-6.692 11q.213 0 .357-.144t.143-.356v-8q0-.213-.144-.356T10.307 8t-.356.144t-.143.356v8q0 .213.144.356q.144.144.356.144m3.385 0q.213 0 .356-.144t.143-.356v-8q0-.213-.144-.356Q13.904 8 13.692 8q-.213 0-.357.144t-.143.356v8q0 .213.144.356t.357.144M7 6v13z"/>
+                </svg>
+              </div>
+              <div class="hide">Descartar Carrito</div>
+            </div>
+          </div>
+
+          <div class="fav-right">
+            <div class="icono-container">
+              <div class="icono-cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24"><path fill="currentColor" d="M16 18a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1m-9-1a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2a2 2 0 0 1 2-2m0 1a1 1 0 0 0-1 1a1 1 0 0 0 1 1a1 1 0 0 0 1-1a1 1 0 0 0-1-1M18 6H4.27l2.55 6H15c.33 0 .62-.16.8-.4l3-4c.13-.17.2-.38.2-.6a1 1 0 0 0-1-1m-3 7H6.87l-.77 1.56L6 15a1 1 0 0 0 1 1h11v1H7a2 2 0 0 1-2-2a2 2 0 0 1 .25-.97l.72-1.47L2.34 4H1V3h2l.85 2H18a2 2 0 0 1 2 2c0 .5-.17.92-.45 1.26l-2.91 3.89c-.36.51-.96.85-1.64.85"/></svg>
+              </div>    
+              <span id="item_cantidad"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <h2 class="titulo" id="titulo_favs">Carrito de Compras</h2>
+        <div id="precio_total" class="precio-total"></div>
+      </div>
+    </section>
+
+    <section id="productos">
+      
+    </section>
+
+    </main>
+    <footer>
+      
+            <section><h1 id="contacto"></h1></section>
+               <div style="border: 3px solid seagreen;">
+                <h1>Contacto</h1>
+                    <form
+                    action="https://formspree.io/f/xwprzgko"
+                    method="POST">
+                    Tu nombre: 
+                    <label><input type="text" name="nombre"></label>
+                    Tu mail:
+                    <label><input type="text" name="Email"></label>
+                    <label> Tu mensaje: <textarea name="message"></textarea> </label>
+                    <button type="enviar">Enviar</button>
+                    <button type="reset">Limpiar</button>
+                    </form>
+                </div>
+            <h2>Nos encontramos acá!</h3>        
+            <h3><iframe style="filter: invert(90%);" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d410.55991456352046!2d-58.41518208031021!3d-34.59203923977881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1760956037830!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></h3>
+            
+        <nav class="menu">
+            <ul class="lista-links">
+            <li>
+                <a class="link" href="#inicio">Inicio</a>
+                
+                
+            </li>
+            </ul>
+            <ul>
+                <a href="README.md" download>"@copyright laverap"</a>
+            </ul>
+        </nav>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
